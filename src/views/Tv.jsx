@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
 import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import React, { useState } from 'react';
 import MySeries from '../views/MySeries';
 import Popular from '../views/Popular';
-import Typography from '@material-ui/core/Typography';
 
 
 export default function Tv() {
@@ -27,13 +27,13 @@ export default function Tv() {
                             </Typography>
                 </Box>
                 <Box borderRadius={3} height={25} onClick={handletwo} marginRight={5} width={120} marginLeft={2} bgcolor={two}>
-                <Typography align='center' variant="title">
+                    <Typography align='center' variant="title">
                         Popular
                             </Typography>
-            </Box>
+                </Box>
             </Box>
             { one == "#ffaf1a" && (
-                <div style={{ marginTop: 25, marginLeft: 20 }} >
+                <div style={{ marginTop: 25, marginLeft: 0 }} >
                     <MySeries />
                 </div>
             )

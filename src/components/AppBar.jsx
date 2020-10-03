@@ -1,40 +1,47 @@
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemIcon';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import HomeIcon from '@material-ui/icons/Home';
-import TheatersIcon from '@material-ui/icons/Theaters';
 import OndemandVideoIcon from '@material-ui/icons/OndemandVideo';
-import Divider from '@material-ui/core/Divider';
+import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
+import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
+import TheatersIcon from '@material-ui/icons/Theaters';
 import React, { useState } from 'react';
 import Clock from 'react-live-clock';
-import { Route, Switch } from "react-router";
-import Home from '../views/Home'
-import Tv from '../views/Tv'
-import Video from '../views/Video'
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+import Home from '../views/Home';
+import Tv from '../views/Tv';
+import Video from '../views/Video';
 const drawerWidth = 80;
 
 
 const useStyles = makeStyles((theme) => ({
     root1: {
         flexGrow: 1,
-        color: 'black'
+        color: 'black',
+        font: ' 18px/30px Courier, serif',
+        marginBottom: 8
     },
     root: {
         display: 'flex',
+        flexGrow: 1
     },
     appBar: {
         width: `calc(100% - ${170}px)`,
         marginLeft: 120,
         marginRight: 50,
+    },
+    sectionDesktop: {
+        display: 'none',
+        [theme.breakpoints.up('md')]: {
+            display: 'flex',
+        },
     },
     drawer: {
         width: drawerWidth,
@@ -88,15 +95,25 @@ function AppBarr() {
                         <Typography variant='h4' noWrap style={{ color: 'black' }}>
                             Watch<b>This</b>
                         </Typography>
+
                         <div className={classes.root1}
                         >
+                            {/* <AccessTimeIcon fontSize='medium'></AccessTimeIcon> */}
                             <Clock
-                                format={'Mo MMMM, h:mm:ss A'}
+                                format={'Mo MMMM, h:mm'}
                                 ticking={true}
                             />
                         </div>
+                        <PersonOutlineOutlinedIcon fontsize='large' style={{ color: 'black' }}></PersonOutlineOutlinedIcon>
+                        <Typography
 
+                            style={{ borderRight: '0.1em solid black', padding: '0.2em', height: 22, marginRight: 6 }}
+                        >
+
+                        </Typography>
+                        <SearchOutlinedIcon fontsize='large' style={{ color: 'black' }}></SearchOutlinedIcon>
                     </Toolbar>
+
                     <Divider></Divider>
                 </AppBar>
             </div>
@@ -117,7 +134,7 @@ function AppBarr() {
                             <HomeIcon style={{ color: home }} fontSize="large" />
 
                         </ListItemIcon>
-                    
+
                     </ListItem>
 
                     <ListItem button onClick={handleTv}>
